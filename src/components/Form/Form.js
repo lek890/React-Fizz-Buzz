@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Form.css';
 
 class Form extends Component {
     constructor(props){
@@ -13,9 +14,16 @@ class Form extends Component {
     }
 
     handleChange(event){
-        var value = event.target.value ? event.target.value : '0';
+        var value = event.target.value;
+
+        if (!/^\d*\.?\d*$/.test(value)){
+            event.target.value = ""
+            event.preventDefault();
+            return;
+        }
+        
         this.setState({
-            updatedLimit : parseInt(value)
+            updatedLimit : value ? parseInt(value) : ""
         });
       }
   
@@ -25,17 +33,19 @@ class Form extends Component {
   
     render() {
         return (
-          <div className="form">
-            <div>
-                FIZZ BUZZ
-            </div>
-            <div>
-               <input type="text" placeholder="Enter the limit" value={this.state.updatedLimit} onChange={this.handleChange}/>
-               <button onClick={this.limitUpdated}>Get results</button>
-            </div>
+            <div className="form">
+                <input className="limitHolder" type="text" 
+                placeholder="Enter the limit" 
+                value={this.state.updatedLimit} 
+                onChange={this.handleChange}
+            />
+            <button onClick={this.limitUpdated} 
+            className="getResults"
+            disabled={!this.state.updatedLimit}
+            >Get results</button>
           </div>
         );
-    }
+      }
   }
   
   export default Form;

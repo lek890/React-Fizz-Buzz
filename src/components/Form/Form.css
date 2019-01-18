@@ -1,0 +1,17 @@
+.limitHolder{
+    padding: 10px;
+    font-size: 15px;
+}
+
+.getResults{
+    padding: 12px;
+    color: white;
+    background: #1976d2;
+    font-size: 14px;
+    margin-left: 2%;
+    font-weight: bold;
+}
+
+button.getResults:disabled {
+    background: #b1b1b1;
+}

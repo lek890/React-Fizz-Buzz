@@ -36,8 +36,16 @@ class App extends Component {
 
     return (
       <div className="App">
+         <div className="App-logo">
+                FIZZ BUZZ
+         </div>
          <Form limit={this.state.limit} limitUpdated={this.limitUpdated}/>
-         <FrizzBuzzResult />
+         <div>
+              <div className="results">Results:</div>
+              <ul className="list">
+                    <FrizzBuzzResult />
+              </ul>
+         </div>
       </div>
     );
   }
