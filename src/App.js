@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import Form from './components/Form/Form'
+import DisplayResult from './components/DisplayResult/DisplayResult'
+
+import setData from './SetData';
+import FizzBuzz from './helpers/FizzBuzz';
+
 class App extends Component {
+  constructor(props){
+    super(props)
+    
+    this.state={
+        limit : 1,
+        data: []
+    }
+    
+    this.limitUpdated = this.limitUpdated.bind(this); 
+  }
+
+  limitUpdated(limit){
+
+    var results = [];
+    Array.from( FizzBuzz.buzz(limit) ).forEach((i) => results.push(i.toString()));
+
+    this.setState({
+        limit,
+        data: results
+    });
+  }
+
   render() {
+
+    const FrizzBuzzResult = setData({ data : this.state.data })(DisplayResult)
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+         <Form limit={this.state.limit} limitUpdated={this.limitUpdated}/>
+         <FrizzBuzzResult />
       </div>
     );
   }
