@@ -32,7 +32,7 @@ class App extends Component {
 
   render() {
 
-    const FrizzBuzzResult = setData({ data : this.state.data })(DisplayResult)
+    const FrizzBuzzResult = setData({ data : this.state.data , test : "123"})(DisplayResult)
 
     return (
       <div className="App">

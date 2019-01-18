@@ -5,8 +5,8 @@ class DisplayResult extends Component {
         const { data } = this.props
         return (
           <div className="display">
-            { data.map( (result, index) => {
-                return <div key={index}>{result}</div> 
+            { data.map( (value, index) => {
+                return this.props.render(value, index)
                })}
           </div>
         );
