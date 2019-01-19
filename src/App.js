@@ -21,8 +21,7 @@ class App extends Component {
 
   limitUpdated(limit){
 
-    var results = [];
-    Array.from( FizzBuzz.buzz(limit) ).forEach((i) => results.push(i.toString()));
+    var results = Array.from( FizzBuzz.buzz(limit) );
 
     this.setState({
         limit,
@@ -32,7 +31,7 @@ class App extends Component {
 
   render() {
 
-    const FrizzBuzzResult = setData({ data : this.state.data , test : "123"})(DisplayResult)
+    const FrizzBuzzResult = setData({ data : this.state.data })(DisplayResult)
 
     return (
       <div className="App">
