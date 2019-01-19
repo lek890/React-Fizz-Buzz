@@ -12,3 +12,6 @@ DisplayResult component uses render prop to render the lists. Any new type of co
 Unit tests are included.
 
 Link to the site : https://lek890.github.io/
+
+I have tried implementing it in TypeScript as well. It is only partially completed.
+Same is here - https://github.com/lek890/FizzBuzz
